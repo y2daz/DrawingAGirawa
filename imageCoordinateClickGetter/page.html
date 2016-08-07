@@ -1,0 +1,38 @@
+<html>
+      <head>
+            <title>I couldn't think of a title.</title>
+            <style>
+                  #image {
+                    height: 350px;
+                    background: #c00;
+                  }
+            </style>
+            <script src="./jquery-1.11.3.js">
+            </script>
+            <script>
+                  $(function() {
+                    var i = 0;
+                    $(document).mousemove(function(e){
+                        console.log("Something");
+                        $('#coordinates').html('Coordinates x: ' + e.pageX + ' y : ' + e.pageY);
+                    });
+                    $("#image").on('click', function(e) {
+                      if( i++ == 0 )
+                      {
+                        $('#list').html($('#list').html() + "{ " + e.pageX + ', ' + e.pageY + " }");
+                      }
+                      else
+                      {
+                        $('#list').html($('#list').html() + ",<br />{ " + e.pageX + ', ' + e.pageY + " }");
+                      }
+                    });
+                  })
+            </script>
+      </head>
+      <body>
+            <div><img id="image" src="./parrot.jpg" alttext="image" /></div>
+            <p id="coordinates">a</p> 
+            <hr />
+            <div id="list"> </div>
+      </body>
+</html>
